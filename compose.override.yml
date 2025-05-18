@@ -1,0 +1,23 @@
+services:
+  app:
+    networks:
+      - ai                                   # the same external network
+    env_file: .env                           # keep secrets *out* of Git
+    volumes:
+      - .:/app                               # live‑mount source for hot reload
+      - ./data:/app/data                     # (re‑declare so it merges)
+    environment:                             # inline defaults / fallbacks
+      # ────────── DB connection ──────────
+      HNAME: blablabla    # or whatever the DB container is called
+      HUSER: blablabla
+      HPASSWORD: blablabla
+      HDATABASE: blabalba
+      HPORT: "1234"
+      # ────────── API keys & misc ─────────
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-changeme}
+    command: python3 main.py                 # entry point inside the image
+
+networks:
+  ai:
+    external: true
+

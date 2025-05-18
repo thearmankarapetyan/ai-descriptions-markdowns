@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: markdownn-app            # visible in `docker ps`
+    build:
+      context: .                             # folder with Dockerfile
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data                     # persistent workspace
+    restart: unless-stopped                  # good production default
+

@@ -1,0 +1,10 @@
+openai==1.74.0
+python-dotenv==1.0.0
+psycopg2-binary==2.9.10
+numpy==1.23.5
+pandas==2.2.3
+flask==2.2.5
+psycopg==3.2.6
+psycopg2==2.9.10
+
+Markdown==3.7
